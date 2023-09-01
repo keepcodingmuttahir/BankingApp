@@ -10,10 +10,10 @@ import java.util.List;
 public interface UserRepository extends JpaRepository < User, Long > {
 
     //@Query("select u from User u where u.userName = ?1")
-      User findByUserName(String username);
 //    @Query(value = "SELECT * FROM users ", nativeQuery = true)
 //     List<User> findAll(String userName);
 //    @Query(value = "SELECT * FROM users WHERE user_name = ?", nativeQuery = true)
 //    User findByUserName(String userName);
+     User findByUserName (String username);
 
 }

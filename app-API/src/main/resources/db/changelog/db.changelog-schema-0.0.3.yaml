@@ -17,7 +17,7 @@ databaseChangeLog:
                   type: bigint
               - column:
                   name: date
-                  type: varchar(255)
+                  type: DATETIME
               - column:
                   name: description
                   type: varchar(255)

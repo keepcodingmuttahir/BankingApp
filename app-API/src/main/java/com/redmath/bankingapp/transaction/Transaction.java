@@ -3,6 +3,8 @@ package com.redmath.bankingapp.transaction;
 import com.redmath.bankingapp.user.User;
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 public class Transaction {
 
@@ -10,12 +12,18 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long userId;
-    private String date;
+    private LocalDateTime date;
     private String description;
     private String Amount;
     private String transtype;
 
+    public LocalDateTime getDate() {
+        return date;
+    }
 
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
     public Long getUser_id() {
         return userId;
     }
@@ -32,13 +40,7 @@ public class Transaction {
         this.id = id;
     }
 
-    public String getDate() {
-        return date;
-    }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
 
     public String getDescription() {
         return description;
