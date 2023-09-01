@@ -1,0 +1,48 @@
+databaseChangeLog:
+  - changeSet:
+      id: schema-0.0.2
+      author: team
+      changes:
+        - createTable:
+            tableName: balance
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date
+                  type: varchar(255)
+              - column:
+                  name: Amount
+                  type: varchar(255)
+              - column:
+                  name: debit
+                  type: varchar(255)
+              - column:
+                  name: credit
+                  type: varchar(255)
+        - addPrimaryKey:
+            tableName: balance
+            columnNames: id
+            constraintName: balance_pk
+#        - addForeignKeyConstraint:
+#            baseTableName: balance
+#            baseColumnNames: user_id
+#            referencedTableName: users
+#            referencedColumnNames: id
+#            constraintName: user_id_balance_fk
+        - createIndex:
+            tableName: balance
+            indexName: balance_ix_01
+            columns:
+              - column:
+                  name: date
+  - changeSet:
+      id: alter-table-auto-increment
+      author: team
+      changes:
+        - sql:
+            sql: ALTER TABLE balance ALTER COLUMN id RESTART WITH 3;

@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: data-0.0.2
+      author: team
+      changes:
+        - insert:
+            tableName: balance
+            columns:
+              - column:
+                  name: id
+                  value: '1'
+              - column:
+                  name: date
+                  value: '2023-08-29'
+              - column:
+                  name: Amount
+                  value: '1000'
+              - column:
+                  name: debit
+                  value: '0'
+              - column:
+                  name: credit
+                  value: '1000'
+        - insert:
+            tableName: balance
+            columns:
+              - column:
+                  name: id
+                  value: '2'
+              - column:
+                  name: date
+                  value: '2023-08-30'
+              - column:
+                  name: Amount
+                  value: '1500'
+              - column:
+                  name: debit
+                  value: '0'
+              - column:
+                  name: credit
+                  value: '1500'

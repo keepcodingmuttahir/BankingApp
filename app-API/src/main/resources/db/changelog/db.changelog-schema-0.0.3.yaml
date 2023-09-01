@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: schema-0.0.3
+      author: team
+      changes:
+        - createTable:
+            tableName: transaction
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: bigint
+              - column:
+                  name: date
+                  type: varchar(255)
+              - column:
+                  name: description
+                  type: varchar(255)
+              - column:
+                  name: Amount
+                  type: varchar(255)
+              - column:
+                  name: transtype
+                  type: varchar(255)
+        - addPrimaryKey:
+            tableName: transaction
+            columnNames: id
+            constraintName: transaction_pk
+#        - addForeignKeyConstraint:
+#            baseTableName: transaction
+#            baseColumnNames: user_id
+#            referencedTableName: users
+#            referencedColumnNames: id
+#            constraintName: user_id_fk
+        - createIndex:
+            tableName: transaction
+            indexName: transaction_ix_01
+            columns:
+              - column:
+                  name: date
+  - changeSet:
+      id: alter-table-auto-increment
+      author: team
+      changes:
+        - sql:
+            sql: ALTER TABLE transaction ALTER COLUMN id RESTART WITH 3;

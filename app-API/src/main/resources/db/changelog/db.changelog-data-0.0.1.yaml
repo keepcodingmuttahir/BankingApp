@@ -1,0 +1,47 @@
+databaseChangeLog:
+  - changeSet:
+      id: data-0.0.1
+      author: team
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  value: '1'
+              - column:
+                  name: user_name
+                  value: user
+              - column:
+                  name: password
+                  value: 'user'
+              - column:
+                  name: email
+                  value: 'user1@example.com'
+              - column:
+                  name: address
+                  value: '123 Main St, City'
+              - column:
+                  name: roles
+                  value: USER
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  value: '2'
+              - column:
+                  name: user_name
+                  value: admin
+              - column:
+                  name: password
+                  value: 'admin'
+              - column:
+                  name: email
+                  value: 'admin1@example.com'
+              - column:
+                  name: address
+                  value: '456 Admin St, City'
+              - column:
+                  name: roles
+                  value: ADMIN

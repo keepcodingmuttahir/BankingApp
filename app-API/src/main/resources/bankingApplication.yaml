@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: news
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+  h2:
+    console:
+      enabled: true
+logging:
+  pattern:
+    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}] ${HOSTNAME}"
+  file:
+    name: ${news.log.dir:target}/news.log
+  level:
+    sql: debug
+    web: debug
+#    '[io.github.merite.training]': debug
+

@@ -1,0 +1,50 @@
+databaseChangeLog:
+  - changeSet:
+      id: data-0.0.3
+      author: team
+      changes:
+        - insert:
+            tableName: transaction
+            columns:
+              - column:
+                  name: id
+                  value: '1'
+              - column:
+                  name: user_id
+                  value: '1'
+              - column:
+                  name: date
+                  value: '2023-08-29'
+              - column:
+                  name: description
+                  value: 'Transaction 1'
+              - column:
+                  name: amount
+                  value: '500'
+              - column:
+                  name: transtype
+                  value: 'credit'
+
+        - insert:
+            tableName: transaction
+            columns:
+              - column:
+                  name: id
+                  value: '2'
+              - column:
+                  name: user_id
+                  value: '1'
+              - column:
+                  name: date
+                  value: '2023-08-30'
+              - column:
+                  name: description
+                  value: 'Transaction 2'
+              - column:
+                  name: amount
+                  value: '750'
+              - column:
+                  name: transtype
+                  value: 'debit'
+
+
