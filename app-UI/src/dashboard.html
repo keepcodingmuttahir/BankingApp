@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="user-db">
+<div class="dashboard-container" ng-controller="UserController as $ctrl">
+    <h2>User Dashboard</h2>
+
+    <!-- User Account Details -->
+    <div ng-if="$ctrl.display">
+    <div class="dashboard-section">
+        <h3>User Account Details</h3>
+        <p><strong>Username:</strong> {{ ::$ctrl.userDetails.user.userName }}</p>
+        <p><strong>Email:</strong> {{ ::$ctrl.userDetails.user.email }}</p>
+        <p><strong>Address:</strong> {{ ::$ctrl.userDetails.user.address }}</p>
+<!--        <p><strong>Roles:</strong> {{ ::$ctrl.userDetails.user.roles }}</p>-->
+    </div>
+    </div>
+
+    <!-- Balance Details -->
+    <div ng-if="$ctrl.display">
+    <div class="dashboard-section">
+        <h3>Balance Details</h3>
+        <p><strong>Amount:</strong> {{ ::$ctrl.userDetails.balance.amount }}</p>
+        <p><strong>Debit:</strong> {{ ::$ctrl.userDetails.balance.debit }}</p>
+        <p><strong>Credit:</strong> {{ ::$ctrl.userDetails.balance.credit }}</p>
+        <p><strong>Date:</strong> {{ ::$ctrl.getCurrentDateTime()  }}</p>
+    </div>
+    </div>
+
+    <!-- Transaction History -->
+    <div ng-if="$ctrl.display">
+        <div class="dashboard-section">
+            <h3>Transaction History</h3>
+            <ul>
+                <li ng-repeat="transaction in $ctrl.userDetails.transactions">
+                    <p><strong>Date:</strong> {{ transaction.date }}</p>
+                    <p><strong>Description:</strong> {{ transaction.description }}</p>
+                    <p><strong>Amount:</strong> {{ transaction.amount }}</p>
+                    <p><strong>Transaction Type:</strong> {{ transaction.transType }}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Button to Create New Transaction -->
+    <button ng-click= "$ctrl.navigateToTransactionForm()" >Create New Transaction</button>
+</div>
+
+
+</body>
+<script lang="javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script lang="javascript" src="lib/angular/angular.min.js"></script>
+<script lang="javascript" src="lib/angular-resource/angular-resource.min.js"></script>
+<script src="js/dashboardController.js"></script>
+</html>

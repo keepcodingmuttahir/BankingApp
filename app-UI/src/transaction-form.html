@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Transaction</title>
+    <link rel="stylesheet" href="css/transaction-form.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="user-tr" ng-controller="TransactionController">
+<div class="transaction-container">
+    <h2>Make Transaction</h2>
+    <form ng-submit="makeTransaction()">
+        <label for="userId">User ID:</label>
+        <input type="number" id="userId" ng-model="transaction.userId" required><br>
+
+        <label for="description">Description:</label>
+        <input type="text" id="description" ng-model="transaction.description" required><br>
+
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" ng-model="transaction.amount" required><br>
+
+        <label for="transtype">Transaction Type:</label>
+        <select id="transtype" ng-model="transaction.transtype" required>
+            <option value="debit">Debit</option>
+            <option value="credit">Credit</option>
+        </select><br>
+
+<!--        <input type="submit" value="Make Transaction">-->
+        <button ng-click= "$ctrl.navigateToDashboard()" >Create New Transaction</button>
+    </form>
+</div>
+
+</body>
+<script lang="javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script lang="javascript" src="lib/angular/angular.min.js"></script>
+<script lang="javascript" src="lib/angular-resource/angular-resource.min.js"></script>
+<script src="js/transactionController.js"></script>
+</html>

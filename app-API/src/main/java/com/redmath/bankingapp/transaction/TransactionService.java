@@ -6,6 +6,7 @@ import com.redmath.bankingapp.balance.BalanceService;
 import com.redmath.bankingapp.user.UserService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -26,6 +27,7 @@ public class TransactionService {
     public Transaction create(Transaction transaction, Long id)
     {
         transaction.setUser_id(id);
+        transaction.setDate(LocalDateTime.now());
         long User_id = transaction.getUser_id();
         Balance balance = balanceService.findById(User_id);
         long credit = Integer.parseInt(balance.getCredit());

@@ -19,7 +19,8 @@ public class BalanceService {
         return repository.findAll();
     }
 
-    public Balance findById(Long id) { return repository.findById(id).orElse(null);
+    public Balance findById(Long id) {
+        return repository.findById(id).orElse(null);
     }
 
     public void updateDebitBalance(String balance, String debit, Long id)

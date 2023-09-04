@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User</title>
+    <link rel="stylesheet" href="css/user-forms.css">
+</head>
+<body>
+<div class="form-container">
+    <h2>Create User</h2>
+    <form action="/create-user" method="POST">
+        <label for="userName">Username:</label>
+        <input type="text" id="userName" name="userName" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required><br>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required><br>
+
+        <label for="roles">Roles:</label>
+        <input type="text" id="roles" name="roles" required><br>
+
+        <input type="submit" value="Create">
+    </form>
+</div>
+</body>
+</html>

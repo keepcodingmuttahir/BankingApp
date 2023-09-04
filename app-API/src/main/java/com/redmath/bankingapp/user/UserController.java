@@ -9,7 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/Users")
@@ -29,9 +29,9 @@ public class UserController {
 
     @GetMapping
     @PreAuthorize("hasAuthority('ADMIN')")
-    public ResponseEntity<List<User>> findAll()
+    public ResponseEntity<Map<String ,List<User>>> findAll()
     {
-        return  ResponseEntity.ok(service.findAll());
+        return  ResponseEntity.ok(Map.of("content", service.findAll()));
     }
 
 
@@ -44,10 +44,10 @@ public class UserController {
         }
         return ResponseEntity.status(HttpStatus.CONFLICT).build();
     }
-    //@PreAuthorize("hasAuthority 'USER'")
+
     @GetMapping(value = "/{id}/all")
     @PreAuthorize("hasAuthority('USER')")
-    public ResponseEntity<UserDetailsDTO> UserDashboard(@PathVariable("id") Long id) {
+    public ResponseEntity<Map<String, UserDetailsDTO>> UserDashboard(@PathVariable("id") Long id) {
         User user= service.findById(id);
         Balance balance=balanceService.findById(id);
         List<Transaction> transaction =transactionService.findByUserId(id);
@@ -57,9 +57,9 @@ public class UserController {
         userDetailsDTO.setUser(user);
         userDetailsDTO.setBalance(balance);
         userDetailsDTO.setTransactions(transaction);
-        return ResponseEntity.ok(userDetailsDTO);
+        return ResponseEntity.ok(Map.of("content",userDetailsDTO));
     }
-    //@PreAuthorize("hasAuthority 'ADMIN'")
+
     @GetMapping("/{id}")
     @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<User> findById(@PathVariable("id") Long id) {
@@ -69,7 +69,7 @@ public class UserController {
         }
         return ResponseEntity.ok(user);
     }
-    //@PreAuthorize("hasAuthority 'ADMIN'")
+
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Void> delete(@PathVariable("id") long id) {
@@ -80,7 +80,7 @@ public class UserController {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
-    //@PreAuthorize("hasAuthority 'ADMIN'")
+
     @PutMapping("/{id}")
     @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<User> update(@PathVariable("id") long id,@RequestBody User user) {

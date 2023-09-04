@@ -25,7 +25,7 @@ databaseChangeLog:
                   name: Amount
                   type: varchar(255)
               - column:
-                  name: transtype
+                  name: transType
                   type: varchar(255)
         - addPrimaryKey:
             tableName: transaction
