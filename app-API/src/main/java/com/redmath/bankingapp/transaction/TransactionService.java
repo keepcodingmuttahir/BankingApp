@@ -24,9 +24,9 @@ public class TransactionService {
         return repository.findAll();
     }
 
-    public Transaction create(Transaction transaction, Long id)
+    public Transaction create(Transaction transaction)
     {
-        transaction.setUser_id(id);
+        //transaction.setUser_id(transaction.getUser_id());
         transaction.setDate(LocalDateTime.now());
         long User_id = transaction.getUser_id();
         Balance balance = balanceService.findById(User_id);

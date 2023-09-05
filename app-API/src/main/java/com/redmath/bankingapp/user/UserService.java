@@ -83,6 +83,10 @@ public class UserService implements UserDetailsService {
         repository.save(existingUser);
         return existingUser;
     }
+
+    public List<User> findAllByUserName(String title) {
+        return repository.findAllByUserName(title);
+    }
 }
 
 

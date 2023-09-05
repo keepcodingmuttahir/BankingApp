@@ -91,4 +91,15 @@ public class UserController {
         }
         return ResponseEntity.ok(up);
     }
+
+//    @GetMapping
+//    public ResponseEntity<Map<String,List<User>>> findAllByName(
+//            @RequestParam(name = "title", defaultValue = "") String title) {
+//        List<User> user = service.findAllByUserName(title);
+//        if (user.isEmpty()) {
+//            return ResponseEntity.notFound().build();
+//        }
+//        return ResponseEntity.ok(Map.of("content",user));
+//    }
+
 }

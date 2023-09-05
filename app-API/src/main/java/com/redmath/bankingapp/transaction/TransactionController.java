@@ -27,10 +27,12 @@ public class TransactionController {
     }
 
 //    @PreAuthorize("hasAuthority 'USER'")
-    @PostMapping("/{user_id}")
+    //@PostMapping("/{user_id}")
+    @PostMapping
     @PreAuthorize("hasAuthority('USER')")
-    public ResponseEntity<Transaction> create(@RequestBody Transaction transaction, @PathVariable Long user_id) {
-        Transaction created = service.create(transaction, user_id);
+    public ResponseEntity<Transaction> create(@RequestBody Transaction transaction) {
+        //Transaction created = service.create(transaction, user_id);
+        Transaction created = service.create(transaction);
         if (created != null) {
             return ResponseEntity.ok(created);
         }
